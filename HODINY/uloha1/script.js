@@ -19,5 +19,3 @@ console.table(["hodnota1", "hodnota2"])
         sum = input1 + input2
         console.log(sum)
     }
-
-  
