@@ -1,6 +1,6 @@
-display = document.getElementById("display")
-let x
+let display = document.getElementById("display")
+let hodnota
 
-pridatHodnotu(x) {
-    display.value += x
+pridatHodnotu(hodnota) {
+    display.value += hodnota
 }
