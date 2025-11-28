@@ -2,14 +2,16 @@
 vypsat do konzole pomocí console.log
 */
 
-/* console.log("konzole")
-console.error("error")
-console.warn("varovani")
-console.table(["hodnota1", "hodnota2"])
- window.alert("###") */
 
+/* 
+    console.log("konzole")
+    console.error("error")
+    console.warn("varovani")
+    console.table(["hodnota1", "hodnota2"])
+    window.alert("###") 
+*/
 
-
+/*
     let input1 = document.getElementById("input1").value
     let input2 = document.getElementById("input2").value
 
@@ -18,4 +20,10 @@ console.table(["hodnota1", "hodnota2"])
     function calc() {
         sum = input1 + input2
         console.log(sum)
+    }
+*/
+
+    let x = document.getElementById("input1").value
+    if(x.includes("a")){
+        console.log("slovo obsahuje a")
     }
