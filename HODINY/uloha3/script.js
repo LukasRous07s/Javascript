@@ -9,6 +9,7 @@
 let btn1 = document.getElementById("btn31")
 btn1.addEventListener('click', () => alert("Ahoj světe!"))
 
+
 /* 32) Po kliknutí na tlačítko změň text vybraného HTML elementu.
       - Napiš funkci, která změní .textContent nebo .innerText.
       - Vyzkoušej použití arrow funkce.
@@ -24,10 +25,13 @@ btn2.addEventListener('click', () => text.innerText = "Text byl změněn")
 */
 let clock = document.getElementById("clock33")
 
-
 setInterval(() => {
       let cas = new Date()
       clock.innerHTML = cas
+      let hr = cas.getHours()
+      let min = cas.getMinutes()
+      let s = cas.getSeconds()
+      clock.innerHTML = `${hr}:${min}:${s}`
 }, 1000)
 
 
@@ -37,7 +41,7 @@ setInterval(() => {
 */
 
 let btn3 = document.getElementById("btn34")
-btn3.addEventListener('click', () => document.body.style.backgroundColor = "red")
+btn3.addEventListener('click', () => document.body.style.backgroundColor = "black")
 
 /* 35) Po najetí myší na obrázek ho zvětši.
       - Použij eventy mouseover a mouseout.
@@ -46,16 +50,29 @@ btn3.addEventListener('click', () => document.body.style.backgroundColor = "red"
 
 let img = document.getElementById("img35")
 img.addEventListener('mouseover', () => img.style.width = "400px")
+img.addEventListener('mouseleave', () => img.style.width = "250px")
 
 /* 36) Po odeslání formuláře vypiš hodnoty inputů do konzole.
       - Zakázat přirozené odeslání formuláře pomocí event.preventDefault().
       - Použij funkci, která načte hodnoty inputů.
 */
 
+let form = document.getElementById("form36")
+
+form.addEventListener('submit', function(event) {
+      event.preventDefault()
+      let names = document.getElementById("name36")
+      let email = document.getElementById("email36")
+      console.log(`Jmeno: ${names} Email:  ${email}`)
+})
+
 /* 37) Vytvoř jednoduché „počítadlo kliknutí“.
       - Po každém kliknutí zvýší číslo o 1 a zobraz ho v HTML.
       - Proměnná se musí nacházet ve správném scope.
 */
+
+// let btn37 = getElementById('btn37')
+// let counter = getElementById('counter37')
 
 /* 38) Po kliknutí na tlačítko skryj nebo zobraz text.
       - Můžeš použít classList.toggle().
@@ -93,6 +110,18 @@ img.addEventListener('mouseover', () => img.style.width = "400px")
       - Použij Math.random a vlastní pole znaků.
 */
 
+
+function generatePassword(x) {
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@$*█▄╗╞░░☻"
+      let password = ""
+      for(let i = 0; i < x; i++) {
+            const index = Math.floor(Math.random() * chars.length)
+            password += chars[index]
+      }
+      return password
+}
+
+
 /* 42) Spočítej faktoriál zadaného čísla.
       - Vytvoř klasickou funkci nebo arrow funkci.
       - Vyzkoušej rekurzi nebo cyklus.
@@ -107,6 +136,30 @@ img.addEventListener('mouseover', () => img.style.width = "400px")
       - Použij setInterval a clearInterval.
       - Funkce musí správně pracovat s proměnnými ve scope.
 */
+
+let stopky = document.getElementById("stopky44")
+let interval = null
+let time = 0
+
+function startTimer() {
+      if(interval) return
+      interval = setInterval( () => {
+            time++
+            stopky.innerHTML = time
+      }, 1000)
+}
+
+function stopTimer() {
+      clearInterval(interval)
+      interval = null
+}
+
+function resetTimer() {
+      
+      time = 0
+      stopky.innerHTML = time
+}
+
 
 /* 45) Simuluj hod kostkou (1–6).
       - Funkce vrací náhodné číslo 1–6.
